@@ -1,0 +1,228 @@
+.header {
+  &__logo {
+    display: flex;
+    justify-content: center;
+    width: 70%;
+  }
+
+  &__container {
+    height: 64px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  &__burger {
+    align-items: center;
+    padding-left: 32px;
+  }
+  &__burger svg {
+    stroke: #fcb72b;
+    width: 40px;
+    height: 36px;
+  }
+  &__menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    list-style: none;
+    padding: 0;
+    margin: 64px 0px 0px 0px;
+  }
+  &__menu li {
+    margin-bottom: 24px;
+  }
+
+  &__link a {
+    color: $color--dimgrey;
+    font-family: Space Mono;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 25px;
+    text-align: left;
+    text-decoration: none;
+  }
+  &__link:hover a {
+    color: #fcb72b;
+    cursor: pointer;
+  }
+  &__nav {
+    position: fixed;
+    top: 32px;
+    left: 0;
+    width: 256px;
+    height: 100%;
+    background-color: $color--menumobile;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
+    padding-top: 32px;
+    padding-left: 32px;
+    display: none;
+  }
+  &__nav.open {
+    display: flex;
+    z-index: 2;
+    animation: transformMenu 300ms ease-in-out forwards;
+  }
+  @keyframes transformMenu {
+    0% {
+      transform: translateX(-100%) translateY(-100%);
+    }
+    100% {
+      transform: initial;
+      margin-top: 32px;
+    }
+  }
+
+  &__nav__close svg {
+    stroke: #fcb72b;
+    width: 40px;
+    height: 30px;
+    position: absolute;
+    top: -50px;
+    left: 20px;
+  }
+  &__btn {
+    width: 192px;
+    height: 53px;
+    background-color: #fcb72b;
+    border: none;
+    font-family: "Space Mono";
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 25px;
+    text-align: center;
+    color: white;
+  }
+  &__btn:hover {
+    background-color: white;
+    color: #fcb72b;
+    border: 2px solid #fcb72b;
+    cursor: pointer;
+  }
+  &__scootin {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+
+  }
+}
+
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 3;
+  background-color: white;
+}
+#header .hidden {
+  transform: translateY(-100%);
+  transition: transform 0.3s ease;
+}
+.header__logo.logo-open {
+  transform: translateX(72px);
+}
+.overlay-menu-mobile {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: none;
+}
+
+.overlay-menu-mobile.open {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  #header {
+    //position: relative;
+    padding-left: 8.5%;
+  }
+  .header {
+    &__container {
+      height: 96px;
+    }
+    &__logo {
+      display: flex;
+      justify-content: flex-start;
+      width: 15%;
+    }
+    &__burger {
+      display: none;
+    }
+    &__nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: $color--dimgrey;
+      background-color: white;
+      order: 1;
+      position: relative; /* Supprimer la position fixe */
+      top: auto; /* Supprimer la position top */
+      right: auto; /* Supprimer la position right */
+      width: 70%; /* Supprimer la largeur fixe */
+      flex-direction: row;
+      padding-top: 0px;
+    }
+    &__menu {
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: flex-end;
+      align-items: center;
+      margin: 0;
+    }
+    &__menu li {
+      margin: 0px;
+    }
+    &__link a {
+      margin-right: 32px;
+      font-family: Space Mono;
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 25px;
+      text-align: left;
+    }
+    &__nav__close {
+      display: none;
+    }
+    &__scootin {
+      justify-content: right;
+      margin-right: 9.3%;
+
+      width: 100%;
+    }
+    &__btn {
+      width: 180px;
+      height: 53px;
+    }
+  }
+}
+/* Screen */
+@media (min-width: 769px) {
+  .header {
+    &__container {
+      height: 96px;
+    }
+    &__logo {
+      width: 107px;
+    }
+    &__menu {
+      margin: 0;
+    }
+    &__scootin{
+      justify-content: right;
+      margin-right: -4%;
+    }
+  }
+}
